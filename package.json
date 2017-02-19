@@ -4,6 +4,7 @@
   "description": "stream vmstat output to a client",
   "dependencies": {
     "express": "~4.14.1",
-    "socket.io": "~1.7.3"
+    "socket.io": "~1.7.3",
+    "body-parser": "~1.16.1"
   }
 }

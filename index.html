@@ -6,7 +6,6 @@
 
   <title>Socket.IO stream vmstat</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
     * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 12px Courrier New, Monospace; }
@@ -15,36 +14,13 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 2px 2px; }
   </style>
-
-  <script src="/socket.io/socket.io.js" type="text/javascript">
-  </script>
-  <script src="http://code.jquery.com/jquery-1.11.1.js" type="text/javascript">
-  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js" type="text/javascript"></script>
   <script type="text/javascript">
-var windowLimit = 5;
-$.ajax({
-  dataType: "json",
-  url: "/limit",
-  success: function(data) {
-    windowLimit = data['window-limit'];
-  }
-});
+var windowLimit = 20;
 var socket = io();
-socket.on('vmstat-panel-title', function(msg) {
-		$('.panel-title').text(msg);
-});
-socket.on('vmstat-headers-clear', function(msg) {
-		$('#headers').empty();
-});
-socket.on('vmstat-headers', function(msg) {
-		$('#headers').append($('<li>').text(msg));
-});
-socket.on('vmstat-stream-out', function(msg) {
-	$('#messages').prepend($('<li>').text(msg));
-	if($('ul#messages li').length > windowLimit) {
-		$('#messages li:last').remove();
-	}
-});
+
   </script>
 </head>
 
